@@ -1,0 +1,40 @@
+# --- Packages ----------------------------------
+
+*.tar
+*.zip
+
+# --- OS generated files ------------------------
+
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+
+# --- NPM lock files ----------------------------
+
+package-lock.json
+
+# --- Dependencies ------------------------------
+
+node_modules
+
+# --- Environment variables ---------------------
+
+.env
+
+# --- IDE Generated files -----------------------
+
+.idea/
+.vscode/
+
+# --- Cypress folders ---------------------------
+
+**/videos/
+**/screenshots/
+**/cucumber-json/
+**/cucumber-report/
+**/downloads/

@@ -1,0 +1,37 @@
+{
+  "name": "data-catalogue-qa",
+  "version": "1.0.0",
+  "description": "E2E Automation tests for data catalogue",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run"
+  },
+  "author": "CDDO",
+  "license": "ISC",
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^15.1.2",
+    "@testing-library/cypress": "^9.0.0",
+    "cypress-axe-core": "^2.0.0",
+    "cypress-axe": "^1.3.0",
+    "cypress-real-events": "^1.7.6",
+    "html-validate": "^7.13.1",
+    "cypress-html-validate": "^5.1.2",
+    "multiple-cucumber-html-reporter": "^3.1.0"
+  },
+  "devDependencies": {
+    "axe-core": "^4.6.3",
+    "cypress": "^12.4.0",
+    "@cypress/browserify-preprocessor": "^3.0.2"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "json": {
+      "enabled": true,
+      "output": "./cypress/cucumber-json/cucumber-report.json"
+    },
+    "html": {
+      "enabled": true,
+      "output": "./report/cucumber-report.html"
+    }
+  }
+}
