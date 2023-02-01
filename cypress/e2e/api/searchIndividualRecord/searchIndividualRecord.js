@@ -31,24 +31,30 @@ When("the URL has an invalid character", () => {
 });
 
 Then("results should have a status code of {string}", (statusCode) => {
+    cy.get('@invalidErrorCode').then((status)=>{
+
             switch (statusCode) {
                 case '400': {
-                    cy.get( '@invalidErrorCode' ).its( 'status' ).should( 'eq', 400 );
+                    expect(status).to.eq(400);
+                  //  cy.get( '@invalidErrorCode' ).its( 'status' ).should( 'eq', 400 );
                     cy.log( 'the result error code is: ' + statusCode );
                     break;
                 }
                 case '401': {
-                    cy.get( '@invalidErrorCode' ).its( 'status' ).should( 'eq', 401 );
+                    expect(status).to.eq(400);
+                 //   cy.get( '@invalidErrorCode' ).its( 'status' ).should( 'eq', 401 );
                     cy.log( 'the result error code is: ' + statusCode );
                     break;
                 }
                 case '403': {
+                    expect(status).to.eq(400);
                     cy.get( '@invalidErrorCode' ).its( 'status' ).should( 'eq', 403 );
-                    cy.log( 'the result error code is: ' + statusCode );
+                   // cy.log( 'the result error code is: ' + statusCode );
                     break;
                 }
                 case '404': {
-                    cy.get( '@invalidErrorCode' ).its( 'status' ).should( 'eq', 404 );
+                    expect(status).to.eq(404);
+                   // cy.get( '@invalidErrorCode' ).its( 'status' ).should( 'eq', 404 );
                     cy.log( 'the result error code is: ' + statusCode );
                     break;
                 }
@@ -57,6 +63,8 @@ Then("results should have a status code of {string}", (statusCode) => {
                 }
 
             }
+
+    })
 
 });
 

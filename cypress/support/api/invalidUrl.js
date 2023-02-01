@@ -3,5 +3,7 @@ export  const invalidUrl = () => {
         method: 'GET',
         url:'https://jsonplaceholder.cypress.io/invalid',
         failOnStatusCode: false,
-    }).as ('invalidErrorCode')
+    }).then(response => {
+        cy.wrap( response.status).as( 'invalidErrorCode' )
+    } )
 }
