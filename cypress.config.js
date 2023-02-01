@@ -21,9 +21,9 @@ async function setupNodeEvents(on,config) {
 };
 module.exports = defineConfig({
   e2e: {
-    specPattern: '**/*.feature',
+    specPattern: 'cypress/e2e/**/*.feature',
     chromeWebSecurity: false,
-    baseUrl: '',
+    baseUrl: 'https://google.com',
     viewportWidth: 1024,
     viewportHeight: 1600,
     video: true,
@@ -33,6 +33,9 @@ module.exports = defineConfig({
     retries:{
       openMode:0,
       runMode:1
-    }
+    },
   },
+  env: {
+    APIURL: 'https://jsonplaceholder.cypress.io'
+  }
 });

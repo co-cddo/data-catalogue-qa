@@ -33,5 +33,16 @@
       "enabled": true,
       "output": "./report/cucumber-report.html"
     }
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/co-cddo/data-catalogue-qa.git"
+  },
+  "keywords": [
+    "REST"
+  ],
+  "bugs": {
+    "url": "https://github.com/co-cddo/data-catalogue-qa/issues"
+  },
+  "homepage": "https://github.com/co-cddo/data-catalogue-qa#readme"
 }
