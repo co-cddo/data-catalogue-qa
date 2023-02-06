@@ -38,3 +38,7 @@ node_modules
 **/cucumber-json/
 **/cucumber-report/
 **/downloads/
+**/report/
+
+# --- execution results --------
+**/*.ndjson
