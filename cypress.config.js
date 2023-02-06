@@ -34,6 +34,10 @@ module.exports = defineConfig({
       openMode:0,
       runMode:1
     },
+    stepDefinitions: [
+      "cypress/e2e/**/*.js",
+      "cypress/e2e/common/**/*.js"
+    ],
   },
   env: {
     APIURL: 'https://jsonplaceholder.cypress.io'

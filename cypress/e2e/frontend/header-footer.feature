@@ -10,7 +10,7 @@ Feature: As a CDDO Catalogue owner
     Then there will be no change in the webpage and the heading 'Find data' exists
 
   Scenario: AC 2 - User is in the middle of journey and if the header link 'Find government data' is selected then Home page is displayed
-    Given the user is on the Data Catalogue Journey
+    Given the user is on the Data Catalogue Journey for "Address Lookup"
     Then the user can view the Header text and logo
     When the user clicks on the image in the header component
     Then the webpage will return to the homepage and the heading 'Find data' exists
