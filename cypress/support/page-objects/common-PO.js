@@ -7,7 +7,9 @@ export const linkFeedback = () => cy.get('[data-cy="govuk-phase-bannner-link"]')
 export const footerLinkOpenGovtLicence = () => cy.get('[data-cy="govuk-footer-licence-link"]');
 export const footerCopyRightCrownLogo = () => cy.get('[data-cy="govuk-footer-copyright-logo"]');
 
-
 export const getPageHeading = () => cy.get('h1');
 export const getDepartmentName = () => cy.get('h2');
 export const linkAddressLookup = () => cy.findByText('Address Lookup');
+
+export const backLink = () => cy.get('[data-cy="govuk-back-link"]');
+

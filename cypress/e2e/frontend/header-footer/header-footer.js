@@ -9,6 +9,10 @@ import {verifyPageHeading} from "../../../support/common/verify-page-heading";
 Given("the user is on the Data Catalogue Home Page", () => {
     goToPage('/');
 });
+Given("the user is on the Data Catalogue Journey for {string}", (linkText) => {
+    goToPage('/');
+    cy.findByText(`${linkText}`).click();
+})
 Then("the user can view the Header text and logo", () => {
     headerNameFindGovtData().should('exist');
     headerNameFindGovtData().should('contain.text', 'Find government data');
@@ -27,10 +31,10 @@ When("the user clicks on the image in the header component", () => {
 Then("there will be no change in the webpage and the heading {string} exists", (homePageHeaderText) => {
     getPageHeading(homePageHeaderText);
 });
-Given("the user is on the Data Catalogue Journey", () => {
-    goToPage('/');
-    linkAddressLookup().click();
-});
+// Given("the user is on the Data Catalogue Journey", () => {
+//     goToPage('/');
+//     linkAddressLookup().click();
+// });
 Then("the webpage will return to the homepage and the heading {string} exists", (homePageHeaderText) => {
     verifyPageHeading(homePageHeaderText);
 });
