@@ -7,13 +7,13 @@ Feature: As a CDDO Catalogue owner
     Given the user is on the Data Catalogue Home Page
     Then the user can view the Header text and logo
     When the user clicks on the image in the header component
-    Then the there will be no change in the webpage and heading 'Find data' exists
+    Then there will be no change in the webpage and the heading 'Find data' exists
 
   Scenario: AC 2 - User is in the middle of journey and if the header link 'Find government data' is selected then Home page is displayed
     Given the user is on the Data Catalogue Journey
     Then the user can view the Header text and logo
     When the user clicks on the image in the header component
-    Then the webpage will return to the homepage with the heading 'Find data'
+    Then the webpage will return to the homepage and the heading 'Find data' exists
 
   Scenario: AC 3 - Verify if user clicks on the GOV.UK link in the header then 'Welcome to GOV.UK' page is displayed
     Given the user is on the Data Catalogue Home Page

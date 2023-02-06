@@ -4,13 +4,16 @@ import {
     footerCopyRightCrownLogo, footerLinkOpenGovtLicence,
     getPageHeading, headerCrownLogoGovUK, headerNameFindGovtData, linkAddressLookup, linkFeedback, textWelcomeToGovUK,
 } from "../../../support/page-objects/common-PO";
+import {verifyPageHeading} from "../../../support/common/verify-page-heading";
 
 Given("the user is on the Data Catalogue Home Page", () => {
     goToPage('/');
 });
 Then("the user can view the Header text and logo", () => {
     headerNameFindGovtData().should('exist');
+    headerNameFindGovtData().should('contain.text', 'Find government data');
     headerCrownLogoGovUK().should('exist');
+    headerCrownLogoGovUK().should('contain.text', 'GOV.UK');
 });
 When("the user clicks on the link 'GOV.UK' in the header component", () => {
     headerCrownLogoGovUK().click();
@@ -21,15 +24,15 @@ Then("'Welcome to GOV.UK' page is displayed", () => {
 When("the user clicks on the image in the header component", () => {
     headerNameFindGovtData().click();
 });
-Then("the there will be no change in the webpage and heading {string} exists", (homePageHeaderText) => {
+Then("there will be no change in the webpage and the heading {string} exists", (homePageHeaderText) => {
     getPageHeading(homePageHeaderText);
 });
 Given("the user is on the Data Catalogue Journey", () => {
     goToPage('/');
     linkAddressLookup().click();
 });
-Then("the webpage will return to the homepage with the heading {string}", (homePageHeaderText) => {
-    getPageHeading(homePageHeaderText);
+Then("the webpage will return to the homepage and the heading {string} exists", (homePageHeaderText) => {
+    verifyPageHeading(homePageHeaderText);
 });
 
 When("the user clicks on the footer link {string}", (text) => {
