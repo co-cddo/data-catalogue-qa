@@ -7,19 +7,12 @@ import {findIndividualRecord} from "../../../support/frontend/find-individual-re
 
 Given('Data Acquirer navigates is on the Find data page', () => {
     goToPage('/');
-    verifyPageHeading('Find data');
-    /* verifyDepartmentName('Department for Work and Pensions');
-     getAddressLookUpLink().should('be.visible').should('have.attr', 'href', '/data_services/1').click();
- */
+    verifyPageHeading('Find data')
 });
 
 When('Data Acquirer selects to view the individual record {string} page for {string}', (record, department) => {
     findIndividualRecord(record, department);
 })
-/*Then('Data Acquirer is able to view the individual record page details', () => {
-
-
-})*/
 
 Then('Data Acquirer is navigated to individual record page for {string} and {string}', (record, department) => {
     cy.url().should('contain', '/data_services/');
