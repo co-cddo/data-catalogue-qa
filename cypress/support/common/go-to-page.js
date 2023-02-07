@@ -3,7 +3,7 @@ export const goToPage = (url) => {
     cy.visit(url, {
         auth: {
             username: 'cddo',
-            password: '$!?4theAk8Hm'
+            password: 'NzAfCGA8L$3z'
         },
 //    cy.checkPageA11y();
 })

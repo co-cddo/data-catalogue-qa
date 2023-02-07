@@ -13,3 +13,6 @@ export const linkAddressLookup = () => cy.findByText('Address Lookup');
 
 export const backLink = () => cy.get('[data-cy="govuk-back-link"]');
 
+export const searchDataCatalogue = () => cy.get('[data-cy="data-service-search-input"]');
+export const buttonEnter = () => cy.get('[data-cy="data-service-search-button"]');
+
