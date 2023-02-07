@@ -23,7 +23,7 @@ module.exports = defineConfig({
   e2e: {
     specPattern: 'cypress/e2e/**/*.feature',
     chromeWebSecurity: false,
-    baseUrl: 'https://data-catalogue-test.herokuapp.com',
+    baseUrl: 'https://data-catalogue-staging.herokuapp.com',
     viewportWidth: 1024,
     viewportHeight: 1600,
     video: true,
