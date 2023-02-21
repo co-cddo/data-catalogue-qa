@@ -1,6 +1,6 @@
 import {goToPage} from "../../../support/common/go-to-page";
 import {Given, Then, When} from "@badeball/cypress-cucumber-preprocessor";
-import {buttonEnter, searchDataCatalogue} from "../../../support/page-objects/common-PO";
+import {buttonSearch, searchDataCatalogue} from "../../../support/page-objects/common-PO";
 import {searchResults, searchResultsCount} from "../../../support/page-objects/searchPage-PO";
 
 
@@ -11,7 +11,7 @@ When("Data Acquirer enter a search term", () => {
     searchDataCatalogue().clear().type('Award');
 });
 When("Data Acquirer clicks on Search button or hits Enter", () => {
-    buttonEnter().click();
+    buttonSearch().click();
 });
 Then("Search Results including a number are displayed with full keyword match against title description or department", () => {
     searchResults().should('contain.text', 'Award Details');

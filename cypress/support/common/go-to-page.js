@@ -5,6 +5,6 @@ export const goToPage = (url) => {
             username: 'cddo',
             password: 'NzAfCGA8L$3z'
         },
-//    cy.checkPageA11y();
+   //cy.checkPageA11y();
 })
 }
