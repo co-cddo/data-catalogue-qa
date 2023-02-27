@@ -13,7 +13,7 @@ Feature: As a CDDO Catalogue owner
     Given the user is on the Data Catalogue Journey for "Address Lookup"
     Then the user can view the Header text and logo
     When the user clicks on the image in the header component
-    Then the webpage will return to the homepage and the heading 'Find data' exists
+    Then the webpage will return to the homepage and the heading 'Find government data' exists
 
   Scenario: AC 3 - Verify if user clicks on the GOV.UK link in the header then 'Welcome to GOV.UK' page is displayed
     Given the user is on the Data Catalogue Home Page
