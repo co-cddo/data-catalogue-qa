@@ -5,6 +5,8 @@ Feature: View individual record
 
   Scenario Outline: View an individual record for '<record>' for '<department>'
     Given Data Acquirer navigates is on the Find data page
+    When Data Acquirer enter a random search term '<record>'
+    And Data Acquirer clicks on Search button or hits Enter
     When Data Acquirer selects to view the individual record '<record>' page for '<department>'
     Then Data Acquirer is navigated to individual record page for '<record>' and '<department>'
     Then Data Acquirer is able to view the individual record page '<contact_email>', '<documentation_url>' and '<endpoint_url>' for given '<record>'

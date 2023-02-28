@@ -25,3 +25,5 @@ export const resultHeaderDWP = () => cy.get('[data-cy="data-service-Department f
 export const resultHeaderFoodStndAgency = () => cy.get('[data-cy="data-service-Food Alerts-link"]');
 export const resultLinkFoodAlerts = () => cy.get('[data-cy="data-service-Food Alerts-link"]');
 export const resultLinkFoodHygiene = () => cy.get('[data-cy="data-service-Food Hygiene Ratings Scheme (FHRS)-link"]');
+export const resultList = () => cy.get('[data-cy="data-service-organisation-list"]');
+export const resultNoRecords = () => cy.get('p[class="govuk-heading-l"]');

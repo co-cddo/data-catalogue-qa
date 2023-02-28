@@ -1,6 +1,6 @@
 Feature: As a data acquirer
-         I want to be able to use the search bar to input search criteria
-         So that I can find a specific record / view a list of records that match the search parameters.
+  I want to be able to use the search bar to input search criteria
+  So that I can find a specific record / view a list of records that match the search parameters.
 
   Scenario: AC 1 - User enters a search keyword and search results corresponding to the keyword are displayed
     Given Data Acquirer is on search results page
@@ -20,3 +20,15 @@ Feature: As a data acquirer
     And Data Acquirer clicks on Search button or hits Enter
     Then '0 results' found message is displayed
 
+  Scenario: AC 4 - User enters a partial keyword and  and search results corresponding to the keyword are displayed
+    Given Data Acquirer is on search results page
+    When Data Acquirer enter a partial search term
+    And Data Acquirer clicks on Search button or hits Enter
+    Then Search Results including a number are displayed with partial keyword match
+
+  Scenario: AC 5 - Search results are ranked as per title and description
+    Given Data Acquirer is on search results page
+    When Data Acquirer enter a random search term 'test'
+    And Data Acquirer clicks on Search button or hits Enter
+    Then the results that fully match the search term are ranked above partial matches for 'test'
+    And results that match on multiple fields are ranked above those that match a smaller number of fields

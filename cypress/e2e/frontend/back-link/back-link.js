@@ -13,7 +13,7 @@ When('the user presses the back button', () => {
     backLink().click();
 });
 Then('the user should view his last activity on the previous page', () => {
-    verifyPageHeading('Find data');
+    verifyPageHeading('Find government data');
 });
 Then('back link should not exist', () => {
    backLink().should('not.exist');
