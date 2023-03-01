@@ -1,3 +1,4 @@
+import "./../accessibility";
 export const goToPage = (url) => {
     cy.clearCookies();
     cy.visit(url, {
@@ -5,6 +6,8 @@ export const goToPage = (url) => {
             username: 'cddo',
             password: 'NzAfCGA8L$3z'
         },
-   //cy.checkPageA11y();
-})
+});
+
+    cy.checkPageA11y();
+
 }

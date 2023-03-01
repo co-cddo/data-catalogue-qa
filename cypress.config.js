@@ -12,6 +12,11 @@ async function setupNodeEvents(on,config) {
       console.log(message)
       return null
     },
+    table(message) {
+      console.table(message)
+
+      return null
+    }
   });
   htmlvalidate.install(on, null, {
     exclude: [],

@@ -1,6 +1,7 @@
 import 'cypress-html-validate/dist/commands';
 import "cypress-real-events/support";
 import '@testing-library/cypress/add-commands';
+import 'cypress-axe';
 
 const COOKIE_NAME = "cookie_notice";
 // The value meaning that user has accepted the cookie policy
