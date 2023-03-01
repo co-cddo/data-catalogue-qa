@@ -26,4 +26,14 @@ function callback(violations) {
         });
     });
 }
+Cypress.Commands.add('checkPageA11y',()=>{
+    cy.injectAxe();
 
+    cy.checkA11y(
+        {
+            exclude:['.govuk-phase-banner']
+        },
+        null,
+        callback,
+    );
+})
