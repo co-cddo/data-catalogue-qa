@@ -13,9 +13,6 @@ export const linkAddressLookup = () => cy.findByText('Address Lookup');
 
 export const backLink = () => cy.get('[data-cy="govuk-back-link"]');
 
-//export const searchDataCatalogue = () => cy.get('[data-cy="data-service-search-input"]');
-//export const searchDataCatalogue = () => cy.findByRole('search');
-export const searchDataCatalogue = () => cy.get('input[name="query"]');
-//export const buttonSearch = () => cy.get('[data-cy="data-service-search-button"]');
+export const searchDataCatalogue = () => cy.get('#data-service-search-input');
 export const buttonSearch = () => cy.get('.gem-c-search__submit');
 
