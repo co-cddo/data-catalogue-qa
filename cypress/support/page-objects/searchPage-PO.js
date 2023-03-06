@@ -14,7 +14,7 @@ export const checkboxTopicEnvironment = () => cy.get('[data-cy=""]');
 export const checkboxTopicCrimeAndJustice = () => cy.get('[data-cy=""]');
 export const checkboxTopicMapping = () => cy.get('[data-cy=""]');
 
-export const checkboxOrgsNHSDigital = () => cy.get('[data-cy=""]');
+export const checkboxOrgsNHSDigital = () => cy.get('[data-cy="organisation-NHS Digital-checkbox-input"]');
 export const checkboxOrgsDWP = () => cy.get('[data-cy="organisation-Department for Work and Pensions-checkbox-input"]');
 export const checkboxOrgsCompaniesHouse = () => cy.get('[data-cy=""]');
 export const checkboxOrgsFoodStndAgency = () => cy.get('[data-cy="organisation-Food Standards Agency-checkbox-input"]');
@@ -27,3 +27,8 @@ export const resultLinkFoodAlerts = () => cy.get('[data-cy="data-service-Food Al
 export const resultLinkFoodHygiene = () => cy.get('[data-cy="data-service-Food Hygiene Ratings Scheme (FHRS)-link"]');
 export const resultList = () => cy.get('[data-cy="data-service-organisation-list"]');
 export const resultNoRecords = () => cy.get('p[class="govuk-heading-l"]');
+export const resultCount = () => cy.get('[data-cy="data-services-results-count"]');
+
+//organisation
+
+export const resultTextNHS = () => cy.findAllByText('NHS Digital');
