@@ -8,17 +8,6 @@ import {
     resultTextNHS
 } from "../../../support/page-objects/searchPage-PO";
 
-Given("I access the service address", () => {
-    //goToPage('/');
-    //cy.findByText(`${linkText}`).click();
-    cy.visit("https://data-catalogue-test.herokuapp.com/", {
-        auth: {
-            username: 'cddo',
-            password: '$!?4theAk8Hm'
-        }
-    })
-   // cy.checkA11y();
-});
 
 Then("I will be able to view the catalogue landing page", () => {
     getPageHeading().should('contain.text', 'Find government data');
@@ -27,12 +16,7 @@ Then("I will be able to view the catalogue landing page", () => {
 });
 
 Given("a user is on the catalogue landing page", () => {
-    cy.visit("https://data-catalogue-test.herokuapp.com/", {
-        auth: {
-            username: 'cddo',
-            password: '$!?4theAk8Hm'
-        }
-    })
+    goToPage('/');
 });
 When("the user enters keyword into the search box {string}", (text) => {
     searchDataCatalogue().clear().type(text);

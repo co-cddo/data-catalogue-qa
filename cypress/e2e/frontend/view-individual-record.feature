@@ -4,7 +4,9 @@ Feature: View individual record
   So that I can view the metadata associated with that record.
 
   Scenario Outline: View an individual record for '<record>' for '<department>'
-    Given Data Acquirer navigates is on the Find data page
+    Given the user is on the Data Catalogue Home Page
+    When the user submits by clicking the search button OR pressing enter
+    Then the user is directed to a results page
     When Data Acquirer enter a random search term '<record>'
     And Data Acquirer clicks on Search button or hits Enter
     When Data Acquirer selects to view the individual record '<record>' page for '<department>'

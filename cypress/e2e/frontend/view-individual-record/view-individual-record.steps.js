@@ -4,12 +4,21 @@ import {verifyPageHeading} from "../../../support/common/verify-page-heading";
 import {verifyDepartmentName} from "../../../support/common/verify-department-name";
 import {findIndividualRecord} from "../../../support/frontend/find-individual-record";
 import {buttonSearch, searchDataCatalogue} from "../../../support/page-objects/common-PO";
+import {resultCount} from "../../../support/page-objects/searchPage-PO";
 
 Given('Data Acquirer navigates is on the Find data page', () => {
     goToPage('/');
     verifyPageHeading('Find government data')
 });
-
+Given("the user is on the Data Catalogue Home Page", () => {
+    goToPage('/');
+});
+When("the user submits by clicking the search button OR pressing enter", () => {
+    buttonSearch().click();
+});
+Then("the user is directed to a results page", () => {
+    resultCount().should('be.visible');
+});
 When('Data Acquirer selects to view the individual record {string} page for {string}', (record, department) => {
     findIndividualRecord(record, department);
 })

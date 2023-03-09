@@ -10,6 +10,11 @@ export const footerCopyRightCrownLogo = () => cy.get('[data-cy="govuk-footer-cop
 export const getPageHeading = () => cy.get('h1');
 export const getDepartmentName = () => cy.get('h2');
 export const linkAddressLookup = () => cy.findByText('Address Lookup');
+export const linkDwpAwardDetails = () => cy.get('[data-cy="data-service-Award Details-link"]');
+export const linkFSAFoodAlerts = () => cy.get('[data-cy="data-service-Food Alerts-link"]');
+export const linkDwpGetTasks = () => cy.get('[data-cy="data-service-Get Tasks-link"]');
+
+export const headerTextGetTasks = () => cy.get('[data-cy="data-service-Get Tasks-name"]')
 
 export const backLink = () => cy.get('[data-cy="govuk-back-link"]');
 

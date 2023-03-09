@@ -5,16 +5,35 @@ import {
     checkboxOrgsDWP,
     checkboxOrgsFoodStndAgency,
     linkClearFilters,
-    resultAddressLookup,
+    resultAddressLookup, resultCount,
     resultHeaderDWP,
     resultHeaderFoodStndAgency,
-    resultLinkFoodAlerts, resultLinkFoodHygiene
+    resultLinkFoodAlerts, resultLinkFoodHygiene, resultTextNHS
 } from "../../../support/page-objects/searchPage-PO";
-import {buttonSearch, searchDataCatalogue} from "../../../support/page-objects/common-PO";
+import {
+    buttonSearch,
+    linkDwpAwardDetails,
+    linkFSAFoodAlerts,
+    searchDataCatalogue
+} from "../../../support/page-objects/common-PO";
 
+//
+// Given("Data Acquirer is on search results page", () => {
+//     goToPage('/');
+// });
 
-Given("Data Acquirer is on search results page", () => {
+Given("the user is on the Data Catalogue Home Page", () => {
     goToPage('/');
+});
+When("the user enters keyword into the search box {string}", (text) => {
+    searchDataCatalogue().clear().type(text);
+});
+When("the user submits by clicking the search button OR pressing enter", () => {
+    buttonSearch().click();
+});
+Then("the user is directed to a results page linked to the entered keyword", () => {
+    resultCount().should('be.visible');
+    resultTextNHS().should('be.visible');
 });
 When("Data Acquirer selects filter for a department and clicks Apply filters button", () => {
     checkboxOrgsDWP().uncheck().check();
@@ -25,11 +44,13 @@ Then("Search Results are filtered based on the filter selected", () => {
     resultHeaderDWP().should('contain.text','Department for Work and Pensions');
 });
 
+
 Given("Data Acquirer is on search results page and one or more filters have been applied", () => {
-    goToPage('/');
     checkboxOrgsDWP().uncheck().check();
     checkboxOrgsFoodStndAgency().uncheck().check();
     buttonApplyFilters().click();
+    linkDwpAwardDetails().should('be.visible');
+    linkFSAFoodAlerts().should('be.visible');
 });
 When("Data Acquirer resets the filters by selecting Clear filters link", () => {
     linkClearFilters().click();
@@ -38,6 +59,7 @@ Then("Search Results are no longer filtered based on the filter previously selec
     cy.url().should('contain','/data_services');
     checkboxOrgsDWP().should('not.be.checked');
     checkboxOrgsFoodStndAgency().should('not.be.checked');
+    cy.findAllByText('NHS Digital').should('exist');
 });
 When("Data Acquirer unselects one department and clicks apply filter button", () => {
     checkboxOrgsDWP().uncheck();
@@ -49,7 +71,7 @@ Then("Search Results are filtered based on the updated filter selection", () => 
     resultLinkFoodAlerts().should('exist');
     resultLinkFoodHygiene().should('exist');
 });
-When("Data Acquirer unselects one department and clicks Apply filters button", () => {
+When("Data Acquirer unselects one department 'DWP' and clicks Apply filters button", () => {
     checkboxOrgsDWP().uncheck();
     buttonApplyFilters().click();
 });

@@ -1,10 +1,13 @@
 const {Given, When, Then} = require( "@badeball/cypress-cucumber-preprocessor" );
 const {goToPage} = require( "../../../support/common/go-to-page" );
-const {linkAddressLookup, backLink, getPageHeading} = require( "../../../support/page-objects/common-PO" );
+const {linkAddressLookup, backLink, getPageHeading, searchDataCatalogue, buttonSearch} = require( "../../../support/page-objects/common-PO" );
 const {verifyPageHeading} = require( "../../../support/common/verify-page-heading" );
+const {resultCount} = require( "../../../support/page-objects/searchPage-PO" );
 
-Given("the user is on the Data Catalogue Journey for the {string}", (linkText) => {
+Given("the user is on the Data Catalogue Journey of {string} for the {string}", (department, linkText) => {
     goToPage('/');
+    searchDataCatalogue().clear().type(department);
+    buttonSearch().click();
     cy.findByText(`${linkText}`).click();
     getPageHeading().should('contain.text',`${linkText}`);
 });
@@ -15,9 +18,23 @@ When('the user presses the back button', () => {
 Then('the user should view his last activity on the previous page', () => {
     verifyPageHeading('Find government data');
 });
-Then('back link should not exist', () => {
-   backLink().should('not.exist');
-});
+
 Given("the user is on the Data Catalogue Home Page", () => {
     goToPage('/');
+});
+Then("back link should not exist", () => {
+    backLink().should('not.exist');
+});
+When("user enter {string} and click on search button", (text) => {
+    searchDataCatalogue().clear().type(text);
+    buttonSearch().click();
+});
+Then("user is on the results page", () => {
+    resultCount().should('contain', 'results');
+});
+When("user click on back link", () => {
+    backLink().click();
+});
+Then("Start Page is displayed", () => {
+    cy.findByText("Search for government APIs, data services and data sets that are available to share between departments.").should('exist');
 });

@@ -1,16 +1,24 @@
 import {Given, When, Then} from "@badeball/cypress-cucumber-preprocessor";
 import {goToPage} from "../../../support/common/go-to-page";
 import {
-    footerCopyRightCrownLogo, footerLinkOpenGovtLicence,
-    getPageHeading, headerCrownLogoGovUK, headerNameFindGovtData, linkAddressLookup, linkFeedback, textWelcomeToGovUK,
+    buttonSearch,
+    footerCopyRightCrownLogo,
+    footerLinkOpenGovtLicence,
+    getPageHeading,
+    headerCrownLogoGovUK,
+    headerNameFindGovtData,
+    linkAddressLookup, linkDwpGetTasks,
+    linkFeedback,
+    searchDataCatalogue,
+    textWelcomeToGovUK,
 } from "../../../support/page-objects/common-PO";
 import {verifyPageHeading} from "../../../support/common/verify-page-heading";
+import {resultCount, resultTextNHS} from "../../../support/page-objects/searchPage-PO";
 
 Given("the user is on the Data Catalogue Home Page", () => {
     goToPage('/');
 });
 Given("the user is on the Data Catalogue Journey for {string}", (linkText) => {
-    goToPage('/');
     cy.findByText(`${linkText}`).click();
 })
 Then("the user can view the Header text and logo", () => {
@@ -28,15 +36,19 @@ Then("'Welcome to GOV.UK' page is displayed", () => {
 When("the user clicks on the image in the header component", () => {
     headerNameFindGovtData().click();
 });
+When("the user selects the link {string}", (link) => {
+    cy.findByText(`${link}`).click();
+});
+Then("the user is directed to the {string} page", (text) => {
+    getPageHeading().should('contain',text);
+});
 Then("there will be no change in the webpage and the heading {string} exists", (homePageHeaderText) => {
     getPageHeading(homePageHeaderText);
 });
-// Given("the user is on the Data Catalogue Journey", () => {
-//     goToPage('/');
-//     linkAddressLookup().click();
-// });
+
 Then("the webpage will return to the homepage and the heading {string} exists", (homePageHeaderText) => {
     verifyPageHeading(homePageHeaderText);
+    cy.findByText("Search for government APIs, data services and data sets that are available to share between departments.")
 });
 
 When("the user clicks on the footer link {string}", (text) => {
@@ -68,4 +80,14 @@ Then("a new tab will open and go to the following URL Crown copyright - Re-using
 
 Then('feedback link is displayed in the header', () => {
     linkFeedback().should('exist');
-})
+});
+When("the user enters keyword into the search box {string}", (text) => {
+    searchDataCatalogue().clear().type(text);
+});
+When("the user submits by clicking the search button OR pressing enter", () => {
+    buttonSearch().click();
+});
+Then("the user is directed to a results page linked to the entered keyword", () => {
+    resultCount().should('be.visible');
+    linkDwpGetTasks().should('be.visible');
+});

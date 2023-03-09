@@ -10,7 +10,12 @@ Feature: As a CDDO Catalogue owner
     Then there will be no change in the webpage and the heading 'Find government data' exists
 
   Scenario: AC 2 - User is in the middle of journey and if the header link 'Find government data' is selected then Home page is displayed
-    Given the user is on the Data Catalogue Journey for "Address Lookup"
+    Given the user is on the Data Catalogue Home Page
+    When the user enters keyword into the search box 'pensions'
+    And the user submits by clicking the search button OR pressing enter
+    Then the user is directed to a results page linked to the entered keyword
+    When the user selects the link "Get Tasks"
+    Then the user is directed to the "Get Tasks" page
     Then the user can view the Header text and logo
     When the user clicks on the image in the header component
     Then the webpage will return to the homepage and the heading 'Find government data' exists
@@ -30,9 +35,9 @@ Feature: As a CDDO Catalogue owner
     Given the user is on the Data Catalogue Home Page
     When the user clicks on the footer link '© Crown copyright'
     Then a new tab will open and go to the following URL Crown copyright - Re-using PSI
-
-  Scenario: AC 6 - Verify feedback link exists in the Header
-    Given the user is on the Data Catalogue Home Page
-    Then feedback link is displayed in the header
+#
+#  Scenario: AC 6 - Verify feedback link exists in the Header
+#    Given the user is on the Data Catalogue Home Page
+#    Then feedback link is displayed in the header
    # feedback form has not been implemented yet
 
