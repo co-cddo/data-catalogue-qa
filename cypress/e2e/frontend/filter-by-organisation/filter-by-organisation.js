@@ -17,11 +17,6 @@ import {
     searchDataCatalogue
 } from "../../../support/page-objects/common-PO";
 
-//
-// Given("Data Acquirer is on search results page", () => {
-//     goToPage('/');
-// });
-
 Given("the user is on the Data Catalogue Home Page", () => {
     goToPage('/');
 });
