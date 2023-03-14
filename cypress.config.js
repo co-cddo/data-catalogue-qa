@@ -25,6 +25,7 @@ async function setupNodeEvents(on,config) {
   return config;
 };
 module.exports = defineConfig({
+  projectId: '644gcf',
   e2e: {
     specPattern: 'cypress/e2e/**/*.feature',
     chromeWebSecurity: false,
