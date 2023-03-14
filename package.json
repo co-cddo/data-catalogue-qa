@@ -4,7 +4,7 @@
   "description": "E2E Automation tests for data catalogue",
   "main": "index.js",
   "scripts": {
-    "test": "cypress run"
+    "test": "npm cypress run --record --key 74ab5018-a718-4b01-b848-536e7deee202"
   },
   "author": "CDDO",
   "license": "ISC",
