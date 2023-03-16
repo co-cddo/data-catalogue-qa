@@ -20,3 +20,14 @@ Feature: As a user of the data catalogue
     Then user is on the results page
     When user click on back link
     Then Start Page is displayed
+
+  Scenario: AC3 - Navigate from Individual record (Contact details) page to Start page
+    Given the user is on the Data Catalogue Home Page
+    When user click on 'Food Standard Agency' image link
+    Then user is on the results page
+    When user click on the result link "Food Alerts"
+    Then user is taken to the "Food Alerts" individual record page
+    When user click on back link
+    Then user is on the results page
+    When user click on back link
+    Then Start Page is displayed
