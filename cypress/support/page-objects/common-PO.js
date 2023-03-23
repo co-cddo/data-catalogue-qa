@@ -30,3 +30,11 @@ export const backLink = () => cy.get('[data-cy="govuk-back-link"]');
 export const searchDataCatalogue = () => cy.get('#data-service-search-input');
 export const buttonSearch = () => cy.get('.gem-c-search__submit');
 
+
+//Pagination
+export const paginationText = () => cy.get(".govuk-\\!-margin-bottom-3 > .govuk-body");
+export const paginationLink = () => cy.get('.govuk-pagination__item--current > .govuk-link');
+export const paginationLinkNext = () => cy.get('.govuk-pagination__next > .govuk-link');
+export const paginationLinkPrevious = () => cy.get('.govuk-pagination__prev > .govuk-link');
+export const paginationLink2 = () => cy.get('[aria-label="Page 2"] > .govuk-link');
+

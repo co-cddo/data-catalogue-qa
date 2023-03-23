@@ -31,3 +31,36 @@ Feature: As a user of the data catalogue
     Then user is on the results page
     When user click on back link
     Then Start Page is displayed
+
+  Scenario: AC4 - Verify pagination and Next link is displayed in the Results page
+    Given the user is on the Data Catalogue Home Page
+    Then back link should not exist
+    When user enter 'NHS' and click on search button
+    Then user is on the results page
+    And the pagination text is displayed
+    And the page number is displayed
+    And the Next page link is displayed
+
+  Scenario: AC5 - Verify pagination 'Previous link' is not displayed in the 1st page but is displayed from the 2nd page onwards
+    Given the user is on the Data Catalogue Home Page
+    Then back link should not exist
+    When user enter 'NHS' and click on search button
+    Then user is on the results page
+    And the pagination text is displayed
+    And the page number is displayed
+    And no Previous link is displayed
+    And the Next page link is displayed
+    When user click on the link Page 2
+    Then Previous Link is displayed
+
+  Scenario: AC4 - Verify pagination Next link is NOT displayed in the Results Last page
+    Given the user is on the Data Catalogue Home Page
+    Then back link should not exist
+    When user enter 'NHS' and click on search button
+    Then user is on the results page
+    And the pagination text is displayed
+    And the page number is displayed
+    And user click on Next page link until the link exists
+
+
+
